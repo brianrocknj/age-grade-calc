@@ -46,4 +46,3 @@ def getAgeGroup(age):
     else:
         base = int(age / 5) * 5
         return f'{base}-{base + 4}'
-    

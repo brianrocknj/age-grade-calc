@@ -11,9 +11,9 @@ def getAgeGradedTime(time, gender, age, year='2025', format='string'):
     if isinstance(time, str):
         time = utils.timeToSeconds(time)
 
-    if gender.upper() in ['M', 'MEN']:
+    if gender.upper() in ['M', 'MEN', 'MAN', 'MALE']:
         gender = 'Men'
-    elif gender.upper() in ['W', 'F', 'WOMEN', 'FEMALE']:
+    elif gender.upper() in ['W', 'F', 'WOMEN', 'WOMAN', 'FEMALE']:
         gender = 'Women'
 
     if age < 20:
@@ -31,9 +31,9 @@ def getAgeGrade(time, gender, age, year='2025'):
     if isinstance(time, str):
         time = utils.timeToSeconds(time)
 
-    if gender.upper() in ['M', 'MEN']:
+    if gender.upper() in ['M', 'MEN', 'MAN', 'MALE']:
         gender = 'Men'
-    elif gender.upper() in ['W', 'F', 'WOMEN', 'FEMALE']:
+    elif gender.upper() in ['W', 'F', 'WOMEN', 'WOMAN', 'FEMALE']:
         gender = 'Women'
 
     if age < 20:
@@ -42,22 +42,19 @@ def getAgeGrade(time, gender, age, year='2025'):
         age = 79
     
     time = getAgeGradedTime(time, gender, age, year, format='time')
-    print(utils.secondsToTime(time))
     standard = standards.loc[standards['Gender'] == gender].iloc[0][year]
 
     ageGrade = (standard / time) * 100
-    return ageGrade
+    return round(ageGrade, 1)
 
 def getPercentile(time, gender, age, year='2025'):
     if isinstance(time, str):
         time = utils.timeToSeconds(time)
 
-    if gender.upper() in ['M', 'MEN']:
+    if gender.upper() in ['M', 'MEN', 'MAN', 'MALE']:
         gender = 'Men'
-    elif gender.upper() in ['W', 'F', 'WOMEN', 'FEMALE']:
+    elif gender.upper() in ['W', 'F', 'WOMEN', 'WOMAN', 'FEMALE']:
         gender = 'Women'
-
-    time = utils.timeToSeconds(time)
 
     age = int(age)
     if age < 20:
@@ -67,8 +64,6 @@ def getPercentile(time, gender, age, year='2025'):
 
     ageGroup = utils.getAgeGroup(age)
 
-    perc = percentiles[(percentiles['Gender'] == gender) & (percentiles[ageGroup] > time)]['Percentile']
+    perc = percentiles[(percentiles['Gender'] == gender) & (percentiles[ageGroup] > time)]['Percentile'].max()
     return perc
-
-print(getPercentile('03:06:00', 'M', 41))
 

@@ -20,7 +20,7 @@ def timeToSeconds(timeString):
 ### Accepts a number in seconds and returns the time formatted as HH:MM:SS
 ### If time is greater than 24 hours, it will include X days. Maybe edit this later.
 def secondsToTime(seconds):
-    return str(datetime.timedelta(seconds=seconds))
+    return str(datetime.timedelta(seconds=int(seconds)))
 
 ### Returns a list of all times, with an optional minimum and maximum hour
 ### The list is in hh:mm:ss format

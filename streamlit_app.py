@@ -3,8 +3,8 @@ import utils
 import ageGrade
 import pandas as pd
 
-st.title("Age Grade Calculator")
-st.write("Enter the details below to calculate the age grade and percentile.")
+# st.title("Age Grade Calculator")
+# st.write("Enter the details below to calculate the age grade and percentile.")
 
 i = 0
 

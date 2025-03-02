@@ -36,3 +36,14 @@ def getAllTimes(min=2, max=8):
 
                 timeValues.append(t)
     return timeValues
+
+### Accepts age as an int and returns the 5-year age group (i.e. 20-24)
+def getAgeGroup(age):
+    if age < 20:
+        return "Under 20"
+    elif age > 79:
+        return "80 and Over"
+    else:
+        base = int(age / 5) * 5
+        return f'{base}-{base + 4}'
+    

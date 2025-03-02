@@ -1,19 +1,5 @@
-# 🎈 Blank app template
+# Marathon Age Grade Calculator with Percentiles
 
-A simple Streamlit app template for you to modify!
+This app is a simple age grade calculator for marathon results.
 
-[![Open in Streamlit](https://static.streamlit.io/badges/streamlit_badge_black_white.svg)](https://blank-app-template.streamlit.app/)
-
-### How to run it on your own machine
-
-1. Install the requirements
-
-   ```
-   $ pip install -r requirements.txt
-   ```
-
-2. Run the app
-
-   ```
-   $ streamlit run streamlit_app.py
-   ```
+In addition to returning a performance level percentile (PLP) and an age graded time, it also returns a percentile. This indicates what percent of finishers in the given age group would be beat by this time.
